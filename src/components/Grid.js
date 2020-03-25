@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { connect} from 'react-redux'
-import store from "../store";
 
 import { generateGrid, setNode } from "../actions";
 import Node from './Node'
@@ -9,10 +8,7 @@ import '../styles/grid.css'
 const Grid = (props) => {
 
     useEffect(() => {
-        console.log("create grid");
-        
        props.generateGrid()
-       console.log(store.getState());
        
     }, []);
 
@@ -145,4 +141,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { generateGrid, setNode},null,{forwardRef:true})(Grid);
+export default connect(mapStateToProps, { generateGrid, setNode})(Grid);
